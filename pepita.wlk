@@ -51,13 +51,22 @@ object manzana {
 
 object pepon {
 	var energia = 30
+	var ultimaComida = manzana
 	
 	method energia() {
 		return energia
 	}
+
+	method validarComida(comida) {
+		if(comida == ultimaComida){
+			self.error("Pepon ya comio esa comida la ultima vez")
+		}
+	}
 		
 	method comer(comida) {
+		self.validarComida(comida)
 		energia = energia + comida.energiaQueAporta() / 2
+		ultimaComida = comida
 	}
 
 	method energiaParaVolar(distancia) {
