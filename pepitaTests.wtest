@@ -4,12 +4,16 @@ describe "Pepita, Pepon y Roque"{
 
     test "La energia inicial de Pepon es 30"{
 
-        assert.fail("IMPLEMENTAR EL TEST!")
+        assert.equals(30, pepon.energia())
     }
 
     test "Pepon al comer alpiste queda con energia en 40"{
+        pepon.comer(alpiste)
+        assert.equals(40, pepon.energia())
+    }
 
-        assert.fail("IMPLEMENTAR EL TEST!")
+    test "Pepon tiene energia insuficiente para volar 300km" {
+        assert.throwsException({pepon.volar(300)})
     }
 
 }
